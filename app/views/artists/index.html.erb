@@ -11,21 +11,12 @@
         Artists
       </div>
       <div class="panel-body">
-
         <% @artists.each do |artist| %>
-        <div class="row">
-          <div class="col-md-7">
-            <h4><%= artist.name %></h4>
-          </div>
-          <div class="col-md-3 right">
-            <%= link_to "View", artist, class: "btn btn-default" %>
-          </div>
-        </div>
+        <p><%= link_to artist.name, artist_path(artist.id) %></p>
         <% end %>
-
       </div>
     </div>
 
-    <%= link_to "Add new place", new_artist_path, class: "btn btn-primary" %>
+    <%= link_to "Add artist", new_artist_path, class: "btn btn-primary" %>
   </div>
 </div>

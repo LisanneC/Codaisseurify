@@ -1,12 +1,24 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update]
 
-  def index;end
+  def index
+    @songs = Song.all
+  end
 
-  def show; end
+  def show
+    @song = Song.find(params[:id])
+  end
 
   def new
     @song = current_artist.songs.build
+  end
+
+  def destroy
+    @song = Song.find(params[:id])
+
+    @song.destroy
+
+    redirect_to songs_path
   end
 
   def create
@@ -17,12 +29,6 @@ class SongsController < ApplicationController
     else
       render :new
     end
-  end
-
-  private
-
-  def set_song
-    @song = Song.find(params[:id])
   end
 
 end
