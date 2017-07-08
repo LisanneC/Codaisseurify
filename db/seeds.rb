@@ -2,6 +2,7 @@ Song.destroy_all
 Artist.destroy_all
 
 artist1 = Artist.create!(name: "Usher")
+artist2 = Artist.create!(name: "Hardwell")
 
 
 song1 = Song.create!(title: "Yeah!",
