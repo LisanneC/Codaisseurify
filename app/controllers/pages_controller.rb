@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def home
-  end
+  # def home
+  #   @songs = Song.find(params[:id])
+  # end
 end
