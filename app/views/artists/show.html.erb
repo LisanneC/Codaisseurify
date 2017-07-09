@@ -7,11 +7,14 @@
       <h3><%= song.title %></h3>
       <p>Year of release: <%= song.year_of_release %>
 
-      <%= link_to "Add song", new_song_path(song.id), class: "btn btn-primary btn-xs" %>
-      <%= link_to "Delete", song_path, class: "btn btn-primary btn-xs" %></p>
+
+      <%= link_to "Delete", song_path, class: "btn btn-default-xs" %></p>
+
     <% end %>
   </div>
 
 </div>
 
 <%= link_to "Back", artists_path, class: "btn btn-default" %>
+  <%= link_to "Add song", new_song_path, class: "btn btn-default" %>
+<%= link_to "Delete this album", artist_path(@artist.id), method: :delete, class: "btn btn-default" %>

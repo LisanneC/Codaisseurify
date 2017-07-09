@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :edit, :update]
+  #before_action :set_song, only: [:show, :edit, :update]
 
   def index
     @songs = Song.all
@@ -16,22 +16,19 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      redirect_to @song, notice: "You added a new song"
+    redirect_to action: "artist"
     else
-      render :new
+      render 'new'
     end
   end
 
   def destroy
     @song = Song.find(params[:id])
-
     @song.destroy
-
-    redirect_to song_path
+    redirect_to action: "index"
   end
 
-private
-
+  private
   def song_params
     params.require(:song).permit(:title, :year_of_release)
   end
