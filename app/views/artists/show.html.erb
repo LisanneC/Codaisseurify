@@ -1,18 +1,17 @@
 <div class="panel panel-primary">
-  <div class="panel-heading"><%= @artist.name %></div>
+  <div class="panel-heading">
+    <h1><%= @artist.name %></h1></div>
 
   <div class="panel-body">
-    <h4>Song</h4>
     <% @artist.songs.each do |song| %>
-     <%= song.title %>
+      <h3><%= song.title %></h3>
+      <p>Year of release: <%= song.year_of_release %>
 
-    <p>Year of release: <%= song.year_of_release %></p>
+      <%= link_to "Add song", new_song_path(song.id), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Delete", song_path, class: "btn btn-primary btn-xs" %></p>
     <% end %>
-
   </div>
 
 </div>
 
 <%= link_to "Back", artists_path, class: "btn btn-default" %>
-
-<%= link_to "Add song", new_song_path, class: "btn btn-default" %>

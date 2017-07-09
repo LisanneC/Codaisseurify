@@ -1,22 +1,15 @@
-<div class="row">
-  <!-- <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", artists_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", artists_path, class: "sidebar-link" %></li>
-    </ul>
-  </div> -->
   <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        Artists
+        <h1>Artists</h1>
       </div>
+      
       <div class="panel-body">
         <% @artists.each do |artist| %>
-        <p><%= link_to artist.name, artist_path(artist.id) %></p>
+        <%= image_tag photo.image rescue nil%>
+        <h3><%= link_to artist.name, artist_path(artist.id) %></h3>
         <% end %>
       </div>
     </div>
-
-    <%= link_to "Add artist", new_artist_path, class: "btn btn-primary" %>
   </div>
 </div>

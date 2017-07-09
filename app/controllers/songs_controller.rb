@@ -10,7 +10,16 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = current_artist.songs.build
+    @song = Song.new
+  end
+
+  def create
+    @song = Song.new(song_params)
+    if @song.save
+      redirect_to @song, notice: "You added a new song"
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -18,17 +27,13 @@ class SongsController < ApplicationController
 
     @song.destroy
 
-    redirect_to songs_path
+    redirect_to song_path
   end
 
-  def create
-    @song = current_artist.songs.build
+private
 
-    if @song.save
-      redirect_to @song, notice: "You added a new song"
-    else
-      render :new
-    end
+  def song_params
+    params.require(:song).permit(:title, :year_of_release)
   end
 
 end
