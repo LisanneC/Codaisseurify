@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  <h1>Songs</h1>
+</div>
+
+  <div class="panel-body">
+<% @songs.each do |song| %>
+  <h3><%= song.title %></h3>
+  <p>Year of release: <%= song.year_of_release %>
+
+  <%= link_to "Delete", class: "btn btn-primary btn-xs" %></p>
+
+    <% end %>
+  </div>
+
+<hr>
+
+  <%= link_to "[Add song]", new_song_path %>

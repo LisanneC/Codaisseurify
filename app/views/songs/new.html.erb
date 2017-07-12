@@ -1,15 +1,7 @@
-<h1>Add your song</h1>
-
-<%= form_for @song do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :year_of_release %>
-  <%= f.number_field :year_of_release %>
-
-  <%= f.submit "Add" %>
-
-<% end %>
+<div class="panel-body">
+  <%= render 'form' %>
+</div>
+</div>
 <!-- <h1><%= @song.title %></h1>
 
 <p>year_of_release: <%= @song.year_of_release %></p> -->
