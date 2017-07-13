@@ -9,16 +9,12 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
   end
 
-  def new
-    @song = Song.new
-  end
-
   def create
     @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
     if @song.save
     redirect_to artist_path(params[:artist_id])
     else
-      render 'new'
+    redirect_to  @song.artist
     end
   end
 
