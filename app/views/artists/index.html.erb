@@ -4,7 +4,8 @@
       <h1>Artists</h1>
     </div>
 
+
   <% @artists.each do |artist| %>
-  <%= image_tag artist.photo rescue nil %>
-  <h3><%= link_to artist.name, artist_path(artist.id) %></h3>
+    <%= image_tag artist.photo.image, :size => "260x280" %>
+    <h3><%= link_to artist.name, artist_path(artist.id) %></h3>
   <% end %>
