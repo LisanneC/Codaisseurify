@@ -1,13 +1,4 @@
 class SongsController < ApplicationController
-  #before_action :set_song, only: [:show, :edit, :update]
-
-  def index
-    @songs = Song.all
-  end
-
-  def show
-    @song = Song.find(params[:id])
-  end
 
   def create
     @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
